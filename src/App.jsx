@@ -111,7 +111,7 @@ function Hero() {
       <div className="portrait-wrap reveal reveal-delay-2">
         <div className="portrait-halo" />
         <div className="portrait-frame">
-          <img src="/taifoor-portrait.jpg" alt="Taifoor Ansari in a professional portrait" />
+          <img src="/taifoor-cutout.png" alt="Taifoor Ansari in a professional portrait" />
         </div>
         <div className="portrait-caption"><span>01</span> Developer & designer</div>
       </div>
