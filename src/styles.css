@@ -60,12 +60,12 @@ img { display: block; max-width: 100%; }
 
 .portrait-wrap { position: absolute; z-index: 3; left: 50%; bottom: 48px; width: min(35vw, 470px); transform: translateX(-50%); }
 .portrait-halo { position: absolute; z-index: -1; left: 50%; top: 4%; width: 100%; aspect-ratio: 1; transform: translateX(-50%); border: 1px solid rgba(255,255,255,.18); border-radius: 50%; box-shadow: 0 0 0 44px rgba(255,255,255,.025), 0 0 0 88px rgba(255,255,255,.018); }
-.portrait-frame { position: relative; height: min(57vh, 590px); overflow: hidden; border-radius: 48% 48% 4px 4px; background: transparent; }
+.portrait-frame { position: relative; height: min(57vh, 590px); overflow: hidden; border-radius: 48% 48% 4px 4px; background: transparent; -webkit-mask-image: linear-gradient(to bottom, #000 60%, rgba(0,0,0,.9) 72%, rgba(0,0,0,.45) 88%, transparent 100%); mask-image: linear-gradient(to bottom, #000 60%, rgba(0,0,0,.9) 72%, rgba(0,0,0,.45) 88%, transparent 100%); }
 .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; filter: saturate(.72) contrast(1.04); transform: scale(1.03); }
 .portrait-caption { position: absolute; z-index: 2; left: 22px; right: 22px; bottom: 18px; display: flex; align-items: center; justify-content: space-between; text-transform: uppercase; letter-spacing: .12em; font-size: 9px; }
 .portrait-caption span { opacity: .65; }
 
-.hero-disciplines { position: absolute; z-index: 5; right: 7vw; top: 49%; width: 205px; }
+.hero-disciplines { position: absolute; z-index: 5; right: 5vw; top: 49%; width: 205px; }
 .hero-disciplines > span { display: block; color: rgba(255,255,255,.48); text-transform: uppercase; letter-spacing: .14em; font-size: 9px; margin-bottom: 16px; }
 .hero-disciplines ul { margin: 0; padding: 0; list-style: none; }
 .hero-disciplines li { padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.12); font-family: 'Manrope', sans-serif; font-size: 12px; }
