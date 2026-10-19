@@ -3,7 +3,6 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   Check,
-  ChevronRight,
   Circle,
   Code2,
   Mail,
@@ -32,7 +31,10 @@ const projects = [
     stack: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT'],
     live: 'https://aimpact-hackathon.vercel.app',
     github: 'https://github.com/TaifoorAnsari/aimpact-hackathon',
-    visual: 'aimpact',
+    image: '/projects/aimpact.png',
+    imageAlt: 'AIMPACT 2026 hackathon landing page with event tracks and registration details',
+    imageWidth: 1872,
+    imageHeight: 880,
     color: 'coral',
   },
   {
@@ -43,9 +45,12 @@ const projects = [
       'A learning platform that turns ambitious skill goals into structured roadmaps, milestone quiz gates, automated schedules, and downloadable guides.',
     metrics: ['AI roadmaps', 'Quiz gates', 'Smart schedules'],
     stack: ['React', 'Zustand', 'Node.js', 'Gemini API', 'MongoDB'],
-    live: 'https://pathforge-app.vercel.app',
+    live: 'https://pathforge-app-wine.vercel.app/',
     github: 'https://github.com/TaifoorAnsari/LakshyaAI',
-    visual: 'pathforge',
+    image: '/projects/pathforge.png',
+    imageAlt: 'PathForge MERN development roadmap dashboard with milestones and learning progress',
+    imageWidth: 1909,
+    imageHeight: 888,
     color: 'violet',
   },
   {
@@ -58,7 +63,10 @@ const projects = [
     stack: ['React 19', 'Vite', 'Tailwind CSS', 'React Router'],
     live: 'https://getgrades.in/',
     github: 'https://github.com/TaifoorAnsari/GetGrades',
-    visual: 'getgrades',
+    image: '/projects/getgrades.png',
+    imageAlt: 'GetGrades Career Institute homepage with course options and admissions information',
+    imageWidth: 1900,
+    imageHeight: 886,
     color: 'blue',
   },
 ]
@@ -160,52 +168,6 @@ function About() {
   )
 }
 
-function ProjectVisual({ type }) {
-  if (type === 'aimpact') {
-    return (
-      <div className="mockup aimpact-mockup">
-        <div className="mockup-bar"><b>AIMPACT</b><span>Admin Console</span><i /></div>
-        <div className="dashboard-shell">
-          <aside>{['Overview', 'Teams', 'Check-in', 'Exports'].map((x, i) => <span className={i === 0 ? 'active' : ''} key={x}><i />{x}</span>)}</aside>
-          <main>
-            <div className="dash-heading"><div><small>Good morning</small><b>Event overview</b></div><button>Export</button></div>
-            <div className="stat-row"><div><small>Teams</small><b>64</b></div><div><small>Students</small><b>200+</b></div><div><small>Checked in</small><b>92%</b></div></div>
-            <div className="dash-bottom"><div className="chart"><span style={{height:'35%'}}/><span style={{height:'52%'}}/><span style={{height:'43%'}}/><span style={{height:'76%'}}/><span style={{height:'90%'}}/><span style={{height:'72%'}}/></div><div className="donut"><b>64</b></div></div>
-          </main>
-        </div>
-      </div>
-    )
-  }
-
-  if (type === 'pathforge') {
-    return (
-      <div className="mockup pathforge-mockup">
-        <div className="mockup-bar"><b>PathForge</b><span>My roadmap</span><i /></div>
-        <div className="path-content">
-          <div className="path-head"><div><small>Learning path</small><b>Full-stack Development</b></div><strong>42%</strong></div>
-          <div className="progress"><i /></div>
-          <div className="roadmap">
-            {[['01','Foundations','Complete'],['02','React systems','In progress'],['03','Backend APIs','Locked'],['04','Ship a product','Locked']].map((r, i) => (
-              <div className={`roadmap-step step-${i}`} key={r[0]}><span>{i === 0 ? <Check size={14}/> : r[0]}</span><div><b>{r[1]}</b><small>{r[2]}</small></div>{i < 3 && <i />}</div>
-            ))}
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  return (
-    <div className="mockup getgrades-mockup">
-      <div className="grades-backdrop">
-        <div className="grades-nav"><b>GetGrades</b><span>Courses&nbsp;&nbsp; Results&nbsp;&nbsp; Contact</span></div>
-        <div className="grades-copy"><small>Admissions open</small><b>Study smart.<br/>Score higher.</b><button>Explore courses</button></div>
-        <div className="grade-cards"><span>NEET</span><span>JEE</span><span>MHT-CET</span></div>
-      </div>
-      <div className="phone"><div className="phone-notch"/><b>GetGrades</b><small>Shape your future</small><h4>Learn from<br/>the best.</h4><button>View courses</button><div className="phone-card">NEET 2026 <ChevronRight size={12}/></div></div>
-    </div>
-  )
-}
-
 function ProjectCard({ project, index }) {
   return (
     <article className={`project project-${project.color} reveal`}>
@@ -221,7 +183,9 @@ function ProjectCard({ project, index }) {
         </div>
       </div>
       <a href={project.live} target="_blank" rel="noreferrer" className="project-visual" aria-label={`Open ${project.title} live website`}>
-        <ProjectVisual type={project.visual} />
+        <div className="project-screenshot">
+          <img src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} loading="lazy" decoding="async" />
+        </div>
         <span className="visual-index">0{index + 1} / 03</span>
       </a>
     </article>
