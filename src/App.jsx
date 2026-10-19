@@ -100,6 +100,21 @@ function Header({ menuOpen, setMenuOpen }) {
   )
 }
 
+function HeroClock() {
+  const [now, setNow] = useState(() => new Date())
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(new Date()), 1000)
+    return () => window.clearInterval(timer)
+  }, [])
+
+  const localTime = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+  }).format(now)
+
+  return <time className="hero-clock" dateTime={now.toISOString()} aria-label={`India local time: ${localTime} IST`}>{localTime} <span>IST</span></time>
+}
+
 function Hero() {
   return (
     <section className="hero" id="home">
@@ -133,6 +148,14 @@ function Hero() {
           <li>Reliable deployment</li>
         </ul>
       </div>
+
+      <nav className="hero-socials" aria-label="Social profiles and email">
+        <a href="https://github.com/TaifoorAnsari" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)"><GithubIcon size={17} /></a>
+        <a href="https://www.linkedin.com/in/taifoor-ansari/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)"><LinkedinIcon size={17} /></a>
+        <a href="mailto:mohammadtaifoor9175@gmail.com" aria-label="Email Taifoor"><Mail size={17} aria-hidden="true" /></a>
+      </nav>
+      <HeroClock />
+      <a className="hero-scroll" href="#about" aria-label="Scroll to About">Scroll <span aria-hidden="true" /></a>
 
       <div className="hero-footer">
         {['React', 'Node.js', 'MongoDB', 'Product thinking', 'UI engineering'].map((item, index) => (
