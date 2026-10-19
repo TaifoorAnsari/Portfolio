@@ -40,7 +40,7 @@ img { display: block; max-width: 100%; }
 .availability span { width: 8px; height: 8px; border-radius: 50%; background: #2bd65f; box-shadow: 0 0 0 4px rgba(43,214,95,.14); }
 .menu-button, .mobile-social { display: none; }
 
-.hero { position: relative; min-height: 100svh; overflow: hidden; padding: 112px 4vw 0; color: #fff; background: var(--wine); }
+.hero { position: relative; min-height: 100svh; overflow: hidden; padding: 112px 4vw 0; color: #fff; background: radial-gradient(ellipse at 50% 62%, #8a2530 0%, var(--wine) 44%, var(--wine-dark) 100%); }
 .hero::before { content: ''; position: absolute; width: 56vw; height: 56vw; left: 52%; bottom: -26vw; transform: translateX(-50%); border-radius: 50%; background: rgba(255,255,255,.035); }
 .hero-grid { position: absolute; inset: 0; opacity: .16; background-image: linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(to bottom, transparent, #000 25%, transparent 85%); }
 .hero-kicker { position: absolute; z-index: 4; top: 102px; left: 4vw; margin: 0; text-transform: uppercase; letter-spacing: .15em; font-size: 10px; font-weight: 600; }
