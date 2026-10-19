@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import useSmoothScroll from './useSmoothScroll'
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -277,6 +278,7 @@ function Contact() {
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  useSmoothScroll(menuOpen)
 
   useEffect(() => {
     const observer = new IntersectionObserver(

@@ -18,6 +18,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+html.lenis { scroll-behavior: auto; }
 body { margin: 0; min-width: 320px; min-height: 100vh; background: var(--cream); overflow-x: hidden; }
 body.menu-open { overflow: hidden; }
 button, input, textarea { font: inherit; }
