@@ -71,6 +71,10 @@ const projects = [
   },
 ]
 
+function RollText({ children }) {
+  return <span className="roll-text"><span>{children}</span><span aria-hidden="true">{children}</span></span>
+}
+
 function Header({ menuOpen, setMenuOpen }) {
   const links = ['Home', 'About', 'Work', 'Contact']
 
@@ -83,12 +87,12 @@ function Header({ menuOpen, setMenuOpen }) {
 
       <nav className={menuOpen ? 'nav-links is-open' : 'nav-links'} aria-label="Primary navigation">
         {links.map((link) => (
-          <a key={link} href={`#${link.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
-            {link}
+          <a className="roll-link" key={link} href={`#${link.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
+            <RollText>{link}</RollText>
           </a>
         ))}
-        <a className="mobile-social" href="https://github.com/TaifoorAnsari" target="_blank" rel="noreferrer">
-          GitHub <ArrowUpRight size={15} />
+        <a className="mobile-social roll-link" href="https://github.com/TaifoorAnsari" target="_blank" rel="noreferrer">
+          <RollText>GitHub</RollText> <ArrowUpRight size={15} />
         </a>
       </nav>
 
@@ -128,7 +132,7 @@ function Hero() {
       <div className="hero-copy reveal reveal-delay-1">
         <span className="eyebrow">Hello, I’m Taifoor.</span>
         <p>I build thoughtful digital products from first interaction to production.</p>
-        <a href="#work" className="text-link">Explore my work <ArrowDownRight size={18} /></a>
+        <a href="#work" className="text-link roll-link"><RollText>Explore my work</RollText> <ArrowDownRight size={18} /></a>
       </div>
 
       <div className="portrait-wrap reveal reveal-delay-2">
@@ -179,7 +183,7 @@ function About() {
           <p>
             My work sits at the intersection of engineering and product thinking. Whether I’m building an AI-powered learning platform, running registrations for 200+ students, or refining a mobile-first education experience, I care about useful details, resilient systems, and interfaces that make sense immediately.
           </p>
-          <a href="mailto:mohammadtaifoor9175@gmail.com" className="button button-dark">Let’s work together <ArrowUpRight size={17} /></a>
+          <a href="mailto:mohammadtaifoor9175@gmail.com" className="button button-dark roll-link"><RollText>Let’s work together</RollText> <ArrowUpRight size={17} /></a>
         </div>
       </div>
       <div className="about-stats reveal">
@@ -201,7 +205,7 @@ function ProjectCard({ project, index }) {
         <div className="metric-list">{project.metrics.map((m) => <span key={m}><Circle size={7} fill="currentColor" />{m}</span>)}</div>
         <div className="stack-list">{project.stack.map((tech) => <span key={tech}>{tech}</span>)}</div>
         <div className="project-links">
-          <a href={project.live} target="_blank" rel="noreferrer" className="button button-light">View live <ArrowUpRight size={17} /></a>
+          <a href={project.live} target="_blank" rel="noreferrer" className="button button-light roll-link"><RollText>View live</RollText> <ArrowUpRight size={17} /></a>
           <a href={project.github} target="_blank" rel="noreferrer" className="icon-link" aria-label={`${project.title} on GitHub`}><GithubIcon size={20} /></a>
         </div>
       </div>
@@ -258,7 +262,7 @@ function Contact() {
           <label><span>Your name</span><input type="text" name="name" placeholder="Jane Smith" required /></label>
           <label><span>Email address</span><input type="email" name="email" placeholder="jane@company.com" required /></label>
           <label><span>Tell me about your project</span><textarea name="message" rows="4" placeholder="A little about the idea, timeline, or role…" required /></label>
-          <button type="submit">{sent ? <>Email ready <Check size={19}/></> : <>Send enquiry <Send size={18}/></>}</button>
+          <button type="submit" className="roll-link">{sent ? <><RollText>Email ready</RollText> <Check size={19}/></> : <><RollText>Send enquiry</RollText> <Send size={18}/></>}</button>
           <small>This form opens your default email app—no information is stored.</small>
         </form>
       </div>
