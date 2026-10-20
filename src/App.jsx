@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import useSmoothScroll from './useSmoothScroll'
+import useMobileNavbar from './useMobileNavbar'
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -78,17 +79,18 @@ function RollText({ children }) {
 
 function Header({ menuOpen, setMenuOpen }) {
   const links = ['Home', 'About', 'Work', 'Contact']
+  const { hidden, active } = useMobileNavbar(menuOpen)
 
   return (
-    <header className="site-header">
+    <header className={hidden ? 'site-header is-scroll-hidden' : 'site-header'}>
       <a className="brand" href="#home" aria-label="Taifoor Ansari, home">
         <span>TA</span>
         <i />
       </a>
 
-      <nav className={menuOpen ? 'nav-links is-open' : 'nav-links'} aria-label="Primary navigation">
+      <nav id="primary-navigation" className={menuOpen ? 'nav-links is-open' : 'nav-links'} aria-label="Primary navigation">
         {links.map((link) => (
-          <a className="roll-link" key={link} href={`#${link.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
+          <a className="roll-link" key={link} href={`#${link.toLowerCase()}`} aria-current={active === link.toLowerCase() ? 'location' : undefined} onClick={() => setMenuOpen(false)}>
             <RollText>{link}</RollText>
           </a>
         ))}
@@ -98,7 +100,7 @@ function Header({ menuOpen, setMenuOpen }) {
       </nav>
 
       <div className="availability"><span /> Open to work</div>
-      <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu" aria-expanded={menuOpen}>
+      <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} aria-controls="primary-navigation">
         {menuOpen ? <X /> : <Menu />}
       </button>
     </header>

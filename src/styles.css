@@ -254,12 +254,16 @@ h2 em { color: var(--wine); font-family: Georgia, serif; font-weight: 400; }
 }
 
 @media (max-width: 720px) {
-  .site-header { height: 66px; padding: 0 20px; grid-template-columns: 1fr auto; mix-blend-mode: normal; color: #fff; background: rgba(74,7,15,.85); backdrop-filter: blur(18px); }
+  .site-header { height: 66px; padding: 0 20px; grid-template-columns: 1fr auto; mix-blend-mode: normal; color: #fff; background: var(--wine-dark); backdrop-filter: none; transition: top .24s cubic-bezier(.2,.7,.2,1); }
+  .site-header.is-scroll-hidden { top: -66px; }
+  .site-header:has(:focus-visible) { top: 0; }
+  .site-header .brand, .menu-button { position: relative; z-index: 2; }
   .availability { display: none; }
   .menu-button { display: grid; place-items: center; padding: 0; border: 0; color: #fff; background: transparent; }
-  .nav-links { position: fixed; inset: 66px 0 0; display: flex; flex-direction: column; align-items: start; gap: 0; padding: 50px 22px; background: var(--wine-dark); transform: translateX(100%); transition: transform .35s cubic-bezier(.2,.7,.2,1); }
-  .nav-links.is-open { transform: translateX(0); }
-  .nav-links a { width: 100%; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.12); font-family: 'Oswald',sans-serif; font-size: 34px; }
+  .nav-links { position: fixed; z-index: 1; inset: 66px 0 auto; height: calc(100vh - 66px); height: calc(100dvh - 66px); display: flex; flex-direction: column; align-items: start; gap: 0; padding: clamp(20px, 5vh, 50px) 22px max(22px, env(safe-area-inset-bottom)); overflow-y: auto; overscroll-behavior: contain; background: var(--wine-dark); visibility: hidden; pointer-events: none; transform: translateX(100%); transition: transform .35s cubic-bezier(.2,.7,.2,1), visibility 0s .35s; }
+  .nav-links.is-open { transform: translateX(0); visibility: visible; pointer-events: auto; transition-delay: 0s; }
+  .nav-links a { flex-shrink: 0; width: 100%; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.12); font-family: 'Oswald',sans-serif; font-size: 34px; }
+  .nav-links a[aria-current="location"] { color: var(--coral); border-bottom-color: var(--coral); }
   .nav-links .mobile-social { margin-top: auto; display: flex; justify-content: space-between; font-family: 'DM Sans',sans-serif; font-size: 13px; }
   .hero { min-height: 820px; padding: 105px 20px 0; }
   .hero-grid { background-size: 40px 40px; }
