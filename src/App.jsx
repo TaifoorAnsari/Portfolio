@@ -262,8 +262,8 @@ function Contact() {
         </div>
 
         <form className="contact-form reveal reveal-delay-1" onSubmit={handleSubmit}>
-          <label><span>Your name</span><input type="text" name="name" placeholder="Jane Smith" required /></label>
-          <label><span>Email address</span><input type="email" name="email" placeholder="jane@company.com" required /></label>
+          <label><span>Your name</span><input type="text" name="name" placeholder="Aarav Sharma" required /></label>
+          <label><span>Email address</span><input type="email" name="email" placeholder="aarav@example.com" required /></label>
           <label><span>Tell me about your project</span><textarea name="message" rows="4" placeholder="A little about the idea, timeline, or role…" required /></label>
           <button type="submit" className="roll-link">{sent ? <><RollText>Email ready</RollText> <Check size={19}/></> : <><RollText>Send enquiry</RollText> <Send size={18}/></>}</button>
           <small>This form opens your default email app—no information is stored.</small>
